@@ -1,0 +1,2 @@
+# schain-wallet
+test
