@@ -11,8 +11,8 @@ if (process.argv.length <= 2) {
 const username = process.argv[2];
 
 
-const CHAINCODE_ID = 'replace your chaincode'
-const APIKEY = 'replace your apikey'
+const CHAINCODE_ID = 'app-d3645cde-bef0-43ee-98e3-caf153de2247'
+const APIKEY = '1e955967c9b3c5d2bcf67bce5ac33c6d'
 
 const REGISTER = 0;
 const BALANCE_OF = 1;
@@ -44,7 +44,7 @@ var recursiveAsyncReadLine = function() {
 
                 if (newUser.toLowerCase() !== 'q') {
                     try {
-                        let result = await schain.register(newUser);
+                        let result = await schain.register(newUser, APIKEY);
                         showRep(result);
                     } catch (e) {
                         showError(e);
