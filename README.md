@@ -1,13 +1,16 @@
 # schain-wallet
-git clone the code and replace 'CHAINCODE_ID' & 'APIKEY' at wallet.js
+Clone this repository and replace 'CHAINCODE_ID' and 'APIKEY' in wallet.js.
+
+The CHAINCODE_ID can be found on the developer console after uploading your chaincode, and the APIKEY can be found on the profile page.
 
 ```ruby
-Usage: wallet.js USERNAME
+Usage: node wallet.js USERNAME
 ```
 
-switch the USERNAME to load identity keystore for use wallet,
-you can change any username to use wallet even if keystore file not exists.
-after enter wallet you will see an interface like
+Specify USERNAME so the wallet could load the proper user identity.
+You can specify any username even if the user is not registered yet.
+
+While entering the wallet, it prints messages as below
 
 ```
 node wallet.js test
@@ -21,9 +24,8 @@ Welcome to "test" wallet
         [99] exit
          =>         
 ```
-if you want to register new user, enter [0] and input new username
-after register success you will get response like this
-
+To register new user, type [0] followed by the desired username.
+It prints messages as below if everything is OK. The user identity file is generated and stored in ./keystore directory.
 
 ```ruby
 
@@ -37,9 +39,5 @@ after register success you will get response like this
 
 
 ```
-
-sdk will auto save keystore file to ./keystore folder then you can restart wallet with new identity
-
-Note:
-1. you will get chaincode id after upload chaincode to develop console
+After registering a user, you can start using the other funtionalities of the wallet, including show balance, transfer, approve, and allowance coins.
 
