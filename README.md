@@ -1,5 +1,5 @@
 # schain-wallet
-Clone this repository and replace CHAINCODE_ID and APIKEY in wallet.js.
+Clone this repository and modify CHAINCODE_ID and APIKEY in wallet.js.
 
 The CHAINCODE_ID can be found on the developer console after uploading your chaincode, while the APIKEY can be found on the profile page.
 
@@ -39,5 +39,5 @@ Once done, the user identity file is generated and stored in ./keystore director
 
 
 ```
-Now, you can start using the other funtionalities of the wallet, including show balance, transfer, approve, and allowance coins.
+Now, you can start using the other wallet functionalities, including show balance, transfer, approve, and allowance coins.
 
