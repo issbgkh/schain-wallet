@@ -1,7 +1,7 @@
 # schain-wallet
-Clone this repository and modify CHAINCODE_ID and APIKEY in wallet.js.
+Clone this repository and modify APP_ID and API_KEY in wallet.js.
 
-The CHAINCODE_ID can be found on the developer console after uploading your chaincode, while the APIKEY can be found on the profile page.
+The APP_ID can be found on the developer console after creating an app, while the API_KEY can be found on the profile page.
 
 ```ruby
 Usage: node wallet.js USERNAME
