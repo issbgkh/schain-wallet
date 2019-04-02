@@ -11,8 +11,9 @@ if (process.argv.length <= 2) {
 const username = process.argv[2];
 
 
-const CHAINCODE_ID = 'app-d3645cde-bef0-43ee-98e3-caf153de2247'
-const APIKEY = '1e955967c9b3c5d2bcf67bce5ac33c6d'
+const APP_ID = 'YOUR_APP_ID'
+const API_KEY = 'YOUR_API_KEY'
+schain.init(API_KEY, APP_ID);
 
 const REGISTER = 0;
 const BALANCE_OF = 1;
@@ -44,7 +45,7 @@ var recursiveAsyncReadLine = function() {
 
                 if (newUser.toLowerCase() !== 'q') {
                     try {
-                        let result = await schain.register(newUser, APIKEY);
+                        let result = await schain.register(newUser);
                         showRep(result);
                     } catch (e) {
                         showError(e);
@@ -56,7 +57,7 @@ var recursiveAsyncReadLine = function() {
 
             case BALANCE_OF:
                 try {
-                    let result = await schain.queryChainCode(APIKEY, CHAINCODE_ID, username, 'balanceOf', '["' + username + '"]');
+                    let result = await schain.queryChainCode(username, 'balanceOf', '["' + username + '"]');
                     showRep(result);
                 } catch (e) {
                     showError(e);
@@ -71,7 +72,7 @@ var recursiveAsyncReadLine = function() {
                     let token = await askToken();
                     await askConfirm("transfer $" + token + " to '" + target);
 
-                    let result = await schain.invokeChainCode(APIKEY, CHAINCODE_ID, username, 'transfer', '["' + target + '","' + token + '"]');
+                    let result = await schain.invokeChainCode(username, 'transfer', '["' + target + '","' + token + '"]');
                     showRep(result);
                 } catch (e) {
                     if (e.message !== 'quit') {
@@ -90,7 +91,7 @@ var recursiveAsyncReadLine = function() {
                     let token = await askToken();
                     await askConfirm("authorise '" + spender + "' transfer $" + token);
 
-                    let result = await schain.invokeChainCode(APIKEY, CHAINCODE_ID, username, 'approve', '["' + spender + '","' + token + '"]');
+                    let result = await schain.invokeChainCode(username, 'approve', '["' + spender + '","' + token + '"]');
                     showRep(result);
                 } catch (e) {
                     if (e.message !== 'quit') {
@@ -106,7 +107,7 @@ var recursiveAsyncReadLine = function() {
 
                 try {
                     let tokenOwner = await askTokenOwner();
-                    let result = await schain.queryChainCode(APIKEY, CHAINCODE_ID, username, 'allowance', '["' + tokenOwner + '","' + username + '"]');
+                    let result = await schain.queryChainCode(username, 'allowance', '["' + tokenOwner + '","' + username + '"]');
                     showRep(result);
                 } catch (e) {
                     if (e.message !== 'quit') {
@@ -123,7 +124,7 @@ var recursiveAsyncReadLine = function() {
                 try {
                     let tokenOwner = await askTokenOwner();
                     let token = await askToken();
-                    let result = await schain.invokeChainCode(APIKEY, CHAINCODE_ID, username, 'transferFrom', '["' + tokenOwner + '","' + username + '","' + token + '"]');
+                    let result = await schain.invokeChainCode(username, 'transferFrom', '["' + tokenOwner + '","' + username + '","' + token + '"]');
                     showRep(result);
                 } catch (e) {
                     if (e.message !== 'quit') {
@@ -138,7 +139,7 @@ var recursiveAsyncReadLine = function() {
                 break;
             default:
                 try {
-                    let result = await schain.queryChainCode(APIKEY, CHAINCODE_ID, username, 'balanceOf', '["' + username + '"]');
+                    let result = await schain.queryChainCode(username, 'balanceOf', '["' + username + '"]');
                     showRep(result);
                 } catch (e) {
                     showError(e);

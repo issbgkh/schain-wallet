@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/issbgkh/schain-wallet#readme",
   "dependencies": {
-    "schain_sdk": "^1.0.2"
+    "schain_sdk": "^1.0.16"
   }
 }
